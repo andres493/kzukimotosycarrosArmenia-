@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: kzuki-motos-y-carros
+    runtime: static
+    buildCommand: "echo sitio-estatico-listo"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /img/*
+        name: Cache-Control
+        value: "public, max-age=604800"
+      - path: /css/*
+        name: Cache-Control
+        value: "public, max-age=604800"
+      - path: /js/*
+        name: Cache-Control
+        value: "public, max-age=604800"
